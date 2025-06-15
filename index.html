@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yashpal-Portfolio</title>
+    <meta name="description" content="Yashpal Bharti's personal portfolio showcasing full-stack development skills in Python, Django, MERN stack, and various web technologies. Explore projects, experience, and contact information.">
+    <meta name="keywords" content="Yashpal Bharti, Full-Stack Developer, Python, Django, MERN Stack, React.js, Node.js, Express.js, MongoDB, HTML, CSS, JavaScript, Web Development, Portfolio, Software Developer, Engineer, Takhatgarh, Rajasthan">
+    <meta name="author" content="Yashpal Bharti">
+    <meta name="robots" content="index, follow"> <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #1e293b; /* slate-800 */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 500px;
+            }
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #f59e0b; /* amber-500 */
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        /* Custom Keyframe Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Apply animations */
+        #hero h1 {
+            animation: fadeIn 1s ease-out;
+        }
+        #hero p {
+            animation: fadeIn 1.2s ease-out;
+        }
+        #hero .social-links a {
+            animation: slideInUp 0.8s ease-out forwards;
+            opacity: 0; /* Hidden by default */
+        }
+        #hero .social-links a:nth-child(1) { animation-delay: 0.3s; }
+        #hero .social-links a:nth-child(2) { animation-delay: 0.4s; }
+
+        .profile-image-container {
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-slate-800">Yashpal Bharti</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="nav-link text-slate-600">About</a>
+                <a href="#skills" class="nav-link text-slate-600">Skills</a>
+                <a href="#experience" class="nav-link text-slate-600">Experience</a>
+                <a href="#projects" class="nav-link text-slate-600">Projects</a>
+                <a href="#contact" class="bg-amber-500 text-white px-4 py-2 rounded-md hover:bg-amber-600 transition-colors">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-slate-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="block py-2 nav-link text-slate-600">About</a>
+            <a href="#skills" class="block py-2 nav-link text-slate-600">Skills</a>
+            <a href="#experience" class="block py-2 nav-link text-slate-600">Experience</a>
+            <a href="#projects" class="block py-2 nav-link text-slate-600">Projects</a>
+            <a href="#contact" class="block mt-2 text-center bg-amber-500 text-white px-4 py-2 rounded-md hover:bg-amber-600 transition-colors">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-8 md:py-16">
+
+        <section id="hero" class="text-center min-h-[70vh] flex flex-col justify-center items-center">
+            <div class="profile-image-container mb-8">
+                <img src="./image/yash-image.jpg" alt="Yashpal Bharti" class="w-48 h-48 rounded-full object-cover border-4 border-amber-500 shadow-lg">
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold text-slate-900 leading-tight">Aspiring Full-Stack Developer</h1>
+            <p class="mt-4 text-lg md:text-xl text-slate-600 max-w-3xl">
+                I build responsive, scalable, and user-friendly web applications using modern technologies. Passionate about turning ideas into reality through code.
+            </p>
+            <div class="mt-8 flex justify-center space-x-4 social-links">
+                <a href="https://github.com/yash-web07" target="_blank" class="text-slate-600 hover:text-amber-500 transition-colors">
+                    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                </a>
+                <a href="https://linkedin.com/in/yashgoswami07" target="_blank" class="text-slate-600 hover:text-amber-500 transition-colors">
+                    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/allabout.yashh__/" target="_blank" class="text-slate-600 hover:text-amber-500 transition-colors">
+                    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.645.07 4.85 0 3.204-.012 3.584-.07 4.85-0.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.85-.07-3.252-0.149-4.771-1.691-4.919-4.919-0.058-1.265-0.07-1.644-0.07-4.85 0-3.204.012-3.584.07-4.85 0.149-3.225 1.664-4.771 4.919-4.919 1.266-0.058 1.644-0.07 4.85-0.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-0.059 1.281-0.073 1.689-0.073 4.948 0 3.259.014 3.668.072 4.948 0.2 4.358 2.618 6.78 6.98 6.98 1.281 0.058 1.689 0.072 4.948 0.072 3.259 0 3.668-0.014 4.948-0.072 4.354-0.2 6.782-2.618 6.979-6.98 0.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-0.196-4.354-2.617-6.78-6.979-6.98-1.281-0.059-1.69-0.073-4.949-0.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="py-16 md:py-24">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-slate-900">About Me</h2>
+                <div class="w-24 h-1 bg-amber-500 mx-auto mt-4 mb-8"></div>
+                <p class="text-lg text-slate-600 leading-relaxed">
+                    I am an enthusiastic and driven Computer Science Engineering student with a strong foundation in full-stack development. My goal is to leverage my practical skills in Python, Django, and the MERN stack to contribute to innovative projects and grow within a dynamic team environment. I am passionate about problem-solving and continuously learning new technologies to build efficient and impactful software solutions.
+                    <br><br>
+                    Based in Takhatgarh, Rajasthan, I thrive on tackling complex challenges and finding elegant solutions. I believe in writing clean, maintainable code and collaborating effectively in a team.
+                </p>
+            </div>
+        </section>
+
+        <section id="skills" class="py-16 md:py-24 bg-white rounded-lg shadow-lg">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-slate-900">Technical Skills</h2>
+                   <div class="w-24 h-1 bg-amber-500 mx-auto mt-4 mb-8"></div>
+                <p class="text-lg text-slate-600 mb-12">
+                    This chart provides a visual overview of my technical abilities across different domains. I have hands-on experience in a variety of modern technologies, with a strong focus on web development. Hover over the bars to see my proficiency level.
+                </p>
+            </div>
+            <div class="chart-container">
+                <canvas id="skillsChart"></canvas>
+            </div>
+        </section>
+
+        <section id="experience" class="py-16 md:py-24">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-slate-900">Experience & Education</h2>
+                    <div class="w-24 h-1 bg-amber-500 mx-auto mt-4"></div>
+                    <p class="text-lg text-slate-600 mt-4">My journey in tech, combining formal education with practical, hands-on training.</p>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-slate-200" aria-hidden="true"></div>
+
+                    <div class="space-y-16">
+                        <div class="relative flex items-start">
+                            <div class="w-1/2 pr-8 text-right">
+                                <p class="font-semibold text-amber-600">2022 - 2026</p>
+                                <h3 class="text-xl font-bold text-slate-800 mt-1">B.Tech in Computer Science</h3>
+                                <p class="text-slate-600 mt-1">CLG Institute of Engineering & Technology, Sumerpur</p>
+                            </div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
+                            <div class="w-1/2 pl-8"></div>
+                        </div>
+
+                        <div class="relative flex items-start">
+                            <div class="w-1/2 pr-8"></div>
+                             <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
+                            <div class="w-1/2 pl-8 text-left">
+                                <p class="font-semibold text-amber-600">July 2024 – Dec 2024</p>
+                                <h3 class="text-xl font-bold text-slate-800 mt-1">Full Stack Python Trainee</h3>
+                                <p class="text-slate-600 mt-1">KEENINFOTECH, Udaipur</p>
+                                <p class="text-slate-500 mt-2 text-sm">Gained hands-on experience in full-stack development, focusing on Python, Django, and front-end integration. Collaborated within a team to build and maintain web applications.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-16 md:py-24">
+            <div class="max-w-6xl mx-auto">
+                   <div class="text-center mb-16">
+                     <h2 class="text-3xl font-bold text-slate-900">Projects</h2>
+                     <div class="w-24 h-1 bg-amber-500 mx-auto mt-4"></div>
+                     <p class="text-lg text-slate-600 mt-4">Here are some of the projects I've worked on to apply my skills and learn new things. Each one represents a unique challenge and learning experience.</p>
+                 </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="project-card bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-slate-800">BookStore Application</h3>
+                            <p class="mt-2 text-slate-600">A full-stack e-commerce platform for reading free and paid books, featuring user authentication and a fully responsive interface.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">React.js</span>
+                                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Node.js</span>
+                                <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Express.js</span>
+                                <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full">MongoDB</span>
+                            </div>
+                            <div class="mt-6 flex justify-between items-center">
+                                <a href="https://github.com/yash-web07" target="_blank" class="font-medium text-amber-600 hover:text-amber-700">View on GitHub &rarr;</a>
+                                <a href="https://bookstoreapp-1-1wz8.onrender.com" target="_blank" class="font-medium text-blue-600 hover:text-blue-700">Live Demo &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-slate-800">Budget Tracker System</h3>
+                            <p class="mt-2 text-slate-600">An automated system that sends financial reports to users via WhatsApp, using the Twilio API for message delivery.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="bg-sky-100 text-sky-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Python</span>
+                                <span class="bg-teal-100 text-teal-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Django</span>
+                                <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Twilio API</span>
+                                <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Automation</span>
+                            </div>
+                            <div class="mt-6">
+                                <a href="https://github.com/yash-web07" target="_blank" class="font-medium text-amber-600 hover:text-amber-700">View on GitHub &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-slate-800">Weather App</h3>
+                            <p class="mt-2 text-slate-600">A dynamic weather application providing real-time weather information using a public Weather API, built with HTML and Bootstrap for a responsive design.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded-full">HTML</span>
+                                <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Bootstrap</span>
+                                <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Weather API</span>
+                            </div>
+                            <div class="mt-6 flex justify-between items-center">
+                                <a href="https://github.com/yash-web07" target="_blank" class="font-medium text-amber-600 hover:text-amber-700">View on GitHub &rarr;</a>
+                                <a href="https://my-weather-app-3.onrender.com" target="_blank" class="font-medium text-blue-600 hover:text-blue-700">Live Demo &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-slate-800">Travel Agency Website</h3>
+                            <p class="mt-2 text-slate-600">A full-stack travel booking platform using the MERN stack, featuring JWT authentication and functionalities to check available travel options.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">MERN Stack</span>
+                                <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full">JWT Auth</span>
+                                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Booking Logic</span>
+                            </div>
+                            <div class="mt-6">
+                                <a href="https://github.com/yash-web07" target="_blank" class="font-medium text-amber-600 hover:text-amber-700">View on GitHub &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contact" class="bg-slate-800 text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold">Get In Touch</h2>
+            <p class="mt-4 max-w-xl mx-auto text-slate-300">I'm currently seeking internship opportunities. If you have a role that fits my skills, or just want to connect, feel free to reach out!</p>
+            <p class="mt-2 text-slate-400">Location: Takhatgarh, Rajasthan, India</p>
+            <a href="mailto:bhartiyashpal52@gmail.com" class="mt-8 inline-block bg-amber-500 text-white font-bold px-8 py-3 rounded-md hover:bg-amber-600 transition-colors text-lg">Say Hello</a>
+            <div class="mt-12 flex justify-center space-x-6">
+                   <a href="https://github.com/yash-web07" target="_blank" class="text-slate-400 hover:text-white transition-colors">
+                     <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                 </a>
+                 <a href="https://linkedin.com/in/yashgoswami07" target="_blank" class="text-slate-400 hover:text-white transition-colors">
+                     <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                 </a>
+                 <a href="https://www.instagram.com/allabout.yashh__/" target="_blank" class="text-slate-400 hover:text-white transition-colors">
+                    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.645.07 4.85 0 3.204-.012 3.584-.07 4.85-0.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.85-.07-3.252-0.149-4.771-1.691-4.919-4.919-0.058-1.265-0.07-1.644-0.07-4.85 0-3.204.012-3.584.07-4.85 0.149-3.225 1.664-4.771 4.919-4.919 1.266-0.058 1.644-0.07 4.85-0.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-0.059 1.281-0.073 1.689-0.073 4.948 0 3.259.014 3.668.072 4.948 0.2 4.358 2.618 6.78 6.98 6.98 1.281 0.058 1.689 0.072 4.948 0.072 3.259 0 3.668-0.014 4.948-0.072 4.354-0.2 6.782-2.618 6.979-6.98 0.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-0.196-4.354-2.617-6.78-6.979-6.98-1.281-0.059-1.69-0.073-4.949-0.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+            </div>
+            <div class="mt-12 text-sm text-slate-500">
+                &copy; 2024 Yashpal Bharti. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Skills Chart
+            const ctx = document.getElementById('skillsChart').getContext('2d');
+            const skillsData = {
+                labels: [
+                    'Python', 'Django', 'JavaScript', 'React.js', 'Node.js', 'Express.js', 'MongoDB',
+                    'HTML', 'CSS3', 'Tailwind CSS', 'SQL/MySQL', 'Git/GitHub', 'Restful APIs'
+                ],
+                datasets: [{
+                    label: 'Proficiency',
+                    data: [85, 80, 80, 75, 70, 70, 65, 95, 90, 90, 70, 85, 75],
+                    backgroundColor: 'rgba(245, 158, 11, 0.6)', // amber-500 with opacity
+                    borderColor: 'rgba(245, 158, 11, 1)', // amber-500
+                    borderWidth: 1,
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            };
+
+            const skillsChart = new Chart(ctx, {
+                type: 'bar',
+                data: skillsData,
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.x !== null) {
+                                        let value = context.parsed.x;
+                                        if(value >= 90) label += 'Excellent';
+                                        else if (value >= 80) label += 'Proficient';
+                                        else if (value >= 70) label += 'Competent';
+                                        else label += 'Familiar'
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100,
+                             grid: {
+                                color: '#e2e8f0' // slate-200
+                            },
+                             ticks: {
+                                color: '#475569' // slate-600
+                            }
+                        },
+                        y: {
+                             grid: {
+                                display: false
+                            },
+                             ticks: {
+                                color: '#475569' // slate-600
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
